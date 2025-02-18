@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  tasks:
+  - name: docker login
+    docker_login:
+      username: gwynbliedd
+      password: "{{ lookup('env', 'DOCKER_PASSWORD') }}"
+  - name: Build an image and push it to a repo
+    docker_image:
+      build:
+        path: /opt/docker
+        dockerfile: Dockerfile
+      name: gwynbliedd/webapp
+      tag: latest
+      push: yes
+      source: build
