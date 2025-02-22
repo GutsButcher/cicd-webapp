@@ -54,7 +54,7 @@ Note: t2.micro instances are insufficient for production workloads.
 
 Delete cluster:
 ```bash
-eksctl delete cluster k8s-cluster --region us-east-1
+sudo eksctl delete cluster k8s-cluster --region us-east-1 --force
 ```
 
 Verify cluster:
